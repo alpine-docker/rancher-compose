@@ -27,7 +27,7 @@ done
 
 if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
   docker build --pull --no-cache --build-arg VERSION=${latest} -t ${image}:${latest} .
-  status=`docker run --rm -it ${image}:${latest} --version | awk '$1=$1' |head -1 |awk '{print $NF}'` 
+  status=`docker run --rm -it ${image}:${latest} --version | sed 's/\\r//g'` |awk 'NR==1{print $NF}'` 
   if [ "${status}" != "${latest}" ]; then 
     echo "unit test is failed."
     exit 1
