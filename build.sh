@@ -26,7 +26,7 @@ do
 done
 
 if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
-  docker build --build-arg VERSION=${latest} -t ${image}:${latest} .
+  docker build --pull --no-cache --build-arg VERSION=${latest} -t ${image}:${latest} .
   status=`docker run --rm -it ${image}:${latest} --version | awk 'NR==1{print $NF}' | awk '$1=$1'`
   if [ "${status}" != "v${latest}" ]; then exit 1; fi
   docker tag ${image}:${latest} ${image}:latest
