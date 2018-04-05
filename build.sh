@@ -34,7 +34,6 @@ if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
   if [[ "$TRAVIS_BRANCH" == "master" ]]; then
     docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
     docker push ${image}:${latest}
-    docker push ${image}:latest
   fi
 
 fi
