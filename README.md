@@ -1,4 +1,4 @@
-# flake8
+# Rancher-compose
 Auto-trigger docker build for [rancher-compose](https://github.com/rancher/rancher-compose) when new release is announced
 
 ### Repo:
