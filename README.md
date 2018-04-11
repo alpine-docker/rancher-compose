@@ -16,10 +16,10 @@ https://hub.docker.com/r/alpine/rancher-compose/tags/
 # Usage:
 
     # must mount the local folder to /apps in container.
-    docker run -ti --rm -v $(pwd):/apps alpine/rancher-compose:0.12.4 --help
+    docker run -ti --rm -v $(pwd):/apps alpine/rancher-compose:v0.12.5 --help
 
     # run rancher-compose container as command
-    alias rancher-compose="docker run -ti --rm -v $(pwd):/apps rancher-compose:0.12.4"
+    alias rancher-compose="docker run -ti --rm -v $(pwd):/apps rancher-compose:v0.12.5"
     rancher-compose --help
 
 # The Processes to build this image
