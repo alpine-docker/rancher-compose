@@ -19,7 +19,7 @@ https://hub.docker.com/r/alpine/rancher-compose/tags/
     docker run -ti --rm -v $(pwd):/apps alpine/rancher-compose:v0.12.5 --help
 
     # run rancher-compose container as command
-    alias rancher-compose="docker run -ti --rm -v $(pwd):/apps rancher-compose:v0.12.5"
+    alias rancher-compose="docker run -ti --rm -v $(pwd):/apps alpine/rancher-compose:v0.12.5"
     rancher-compose --help
 
 # The Processes to build this image
