@@ -32,6 +32,7 @@ if [[ ( $sum -ne 1 ) || ( $1 == "rebuild" ) ]];then
     echo "unit test is failed."
     exit 1
   else
+    echo "docker version matched."
     if [[ "$TRAVIS_BRANCH" == "master" ]]; then
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       docker push ${image}:${latest}
