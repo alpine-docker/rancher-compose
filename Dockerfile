@@ -11,5 +11,4 @@ RUN apk add --update --no-cache --virtual .build-deps ca-certificates curl tar &
 
 WORKDIR /apps
 
-ENTRYPOINT ["rancher-compose"]
-CMD ["--help"]
+CMD ["rancher-compose", "--help"]
