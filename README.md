@@ -17,10 +17,13 @@ https://hub.docker.com/r/alpine/rancher-compose/tags/
 
     # must mount the local folder to /apps in container.
     docker run -ti --rm -v $(pwd):/apps alpine/rancher-compose:v0.12.5 --help
-
-    # run rancher-compose container as command
-    alias rancher-compose="docker run -ti --rm -v $(pwd):/apps alpine/rancher-compose:v0.12.5"
-    rancher-compose --help
+    
+    docker run -i -v $(pwd):/apps \
+	  -e "RANCHER_URL=${RANCHER_URL}" \
+	  -e "RANCHER_ACCESS_KEY=${RANCHER_ACCESS_KEY}" \
+	  -e "RANCHER_SECRET_KEY=${RANCHER_SECRET_KEY}" \
+	  alpine/rancher-compose:v0.12.5 \
+	  sh -c "rancher-compose --env-file .env --project-name ${RANCHER_STACK_NAME} up -d -u -c"
 
 # The Processes to build this image
 
